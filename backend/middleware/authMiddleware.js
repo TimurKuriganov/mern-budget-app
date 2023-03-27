@@ -8,7 +8,7 @@ const requireAuth = async (req, res, next) => {
   const { authorization } = req.headers;
   try {
     if (!authorization) {
-      throw new ApiErrorClass(401, 'Not Authoried');
+      throw new ApiErrorClass(401, 'Not Authoried, no token');
     }
 
     const token = authorization.split(' ')[1];
