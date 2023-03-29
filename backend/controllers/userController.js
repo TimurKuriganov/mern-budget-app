@@ -32,6 +32,7 @@ const signupUser = async (req, res, next) => {
 
 const loginUser = async (req, res, next) => {
   const { email, password } = req.body;
+  console.log('req.body', req.body);
   try {
     if (!email || !password) throw new ApiErrorClass(400, 'All fields must be filled');
     const user = await User.findOne({ email });
