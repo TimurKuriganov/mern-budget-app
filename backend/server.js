@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const userRoutes = require('./routes/user');
 const budgetRoutes = require('./routes/budget');
 const ApiErrorClass = require('./error/ApiError');
@@ -9,7 +10,9 @@ const errorHandler = require('./middleware/errorMiddleware')
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/api/budgets', budgetRoutes);
